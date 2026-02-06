@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Happy Rose Day 🌹</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     body {
@@ -14,19 +15,19 @@
       overflow: hidden;
     }
     h1 {
-      font-size: 3.5em;
-      margin-top: 40px;
+      font-size: 8vw; /* scales with screen width */
+      margin-top: 10vw;
       animation: bounce 2s infinite;
     }
     p {
-      font-size: 1.4em;
-      margin: 20px auto;
-      max-width: 700px;
+      font-size: 4.5vw;
+      margin: 5vw auto;
+      max-width: 90%;
       line-height: 1.6;
       animation: fadeIn 4s ease-in-out;
     }
     .rose {
-      font-size: 6em;
+      font-size: 15vw;
       animation: float 4s infinite;
     }
     @keyframes bounce {
@@ -44,11 +45,11 @@
     }
     .btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
+      margin-top: 8vw;
+      padding: 4vw 8vw;
       background: #ff4b5c;
       color: white;
-      font-size: 1.2em;
+      font-size: 5vw;
       border-radius: 30px;
       text-decoration: none;
       transition: 0.3s;
@@ -68,13 +69,19 @@
     .heart {
       position: absolute;
       color: rgba(255,255,255,0.7);
-      font-size: 2em;
+      font-size: 6vw;
       animation: rise 10s infinite;
     }
     @keyframes rise {
       0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
       50% { opacity: 1; }
       100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+    /* Media query for very small phones */
+    @media (max-width: 400px) {
+      h1 { font-size: 10vw; }
+      p { font-size: 5vw; }
+      .btn { font-size: 6vw; padding: 5vw 9vw; }
     }
   </style>
 </head>
@@ -102,21 +109,21 @@
     }
     setInterval(createHeart, 800);
 
-    // SweetAlert surprise flow
+    // SweetAlert surprise flow (scaled for mobile)
     function showSurprise() {
       Swal.fire({
         title: '🌹 Happy Rose Day!',
-        text: 'You are the most beautiful rose in my garden of life 💕',
+        html: '<h2 style="font-size:6vw;color:#d6336c;">You are the most beautiful rose in my garden of life 💕</h2>',
         imageUrl: 'https://cdn-icons-png.flaticon.com/512/616/616408.png',
-        imageWidth: 100,
-        imageHeight: 100,
+        imageWidth: 120,
+        imageHeight: 120,
         confirmButtonText: 'Next 🌸',
         background: '#fff0f5',
         color: '#d6336c'
       }).then(() => {
         Swal.fire({
           title: '😂 Funny but true!',
-          text: 'You’re my favorite person to annoy forever!',
+          html: '<p style="font-size:5vw;color:#c71585;">You’re my favorite person to annoy forever!</p>',
           icon: 'smile',
           confirmButtonText: 'Next 💖',
           background: '#ffe4e1',
@@ -124,7 +131,7 @@
         }).then(() => {
           Swal.fire({
             title: '💌 Final Surprise!',
-            html: '<b>I Love You Forever!</b><br>Happy Rose Day, my sweetheart 🌹',
+            html: '<h2 style="font-size:6vw;color:#d6336c;">I Love You Forever!<br>Happy Rose Day, my sweetheart 🌹</h2>',
             icon: 'heart',
             confirmButtonText: 'Aww ❤️',
             background: '#fff0f5',
